@@ -1,3 +1,5 @@
+// A logica pensada foi de adicionar e editar linhas, ou seja, ao selecionar uma linha deve-se escrever tudo oq possui nela!!
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -17,15 +19,19 @@ void showMenu() {
     cout << "==============================\n";
 }
 
-void displayContent(const vector<string> & content) { // const para garantir que não altera o conteúdo
+// Mostra o conteudo que será adicionado mas nao mostra o que ja ta no documento (corrigir)
+void displayContent(const vector<string> & content) {
 
     // Essa função exibe o conteúdo do arquivo rodando todo o vetor content de Strings
-    cout << "\nConteúdo atual:\n";
+    cout << "-----------------------------------";
+    cout << "\nConteúdo atual:\n \n";
     for (size_t i = 0; i < content.size(); ++i) {
         cout << i + 1 << ": " << content[i] << endl;
     }
+    cout << "-----------------------------------\n";
 }
 
+// Está reescrevendo o conteudo, estudar a possibilidade de adicionar conteudo ao final do arquivo para salvar as linhas que ja foram escritas
 void saveToFile(const vector<string>& content, const string& filename) {
     ofstream file(filename); // abre o arquivo para escrita utilizando o ofstream (PERGUNTAR PROFESSOR)
     if (!file.is_open()) {
