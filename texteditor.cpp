@@ -20,7 +20,7 @@ void showMenu() {
 }
 
 // Mostra o conteudo que será adicionado mas nao mostra o que ja ta no documento (corrigir)
-void displayContent(const vector<string> & content) {
+void displayContent(const vector<string>& content) { 
 
     // Essa função exibe o conteúdo do arquivo rodando todo o vetor content de Strings
     cout << "-----------------------------------";
@@ -39,7 +39,7 @@ void saveToFile(const vector<string>& content, const string& filename) {
         return;
     }
 
-    for (const auto& line : content) {
+    for (const auto& line : content) { // o const auto& line é uma forma de iterar sobre o vetor content
         file << line << "\n";
     }
 
@@ -47,7 +47,7 @@ void saveToFile(const vector<string>& content, const string& filename) {
     cout << "Conteúdo salvo em " << filename << endl;
 }
 
-void editLine(vector<string> & content) {
+void editLine(vector<string>& content) {
     //implementar logica de edição de linha
 }
 
