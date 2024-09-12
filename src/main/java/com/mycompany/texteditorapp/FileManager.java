@@ -11,8 +11,7 @@ public class FileManager {
             file.createNewFile();
             return "";
         }
-        
-        //Passa todo o conteúdo do texto para a forma de String e vai ser colocado no TextArea
+
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -30,6 +29,17 @@ public class FileManager {
             writer.write(content);
         }
     }
+
+    // Exclui o arquivo
+    public boolean deleteFile(String fileName) throws IOException {
+        File file = new File(fileName);
+        if (file.exists()) {
+            return file.delete();  // Retorna true se o arquivo foi excluído
+        } else {
+            throw new IOException("Arquivo não encontrado.");
+        }
+    }
 }
+
 
 //Em quase todas as funções dessa classe usei o Buffered que permite otimizar a passagem de dados de arquivos externos, em C o IOStream ja possui isso como default
